@@ -1,0 +1,9 @@
+python -m pip list
+pip install intelhex
+from intelhex import IntelHex
+pydict.values()
+pydict['start_addr']['IP']
+pydict = ih.todict()
+len(ih)
+ih[0]
+ih = IntelHex("blabla.hex")

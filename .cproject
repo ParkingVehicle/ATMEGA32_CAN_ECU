@@ -17,7 +17,7 @@
 				</extensions>
 			</storageModule>
 			<storageModule moduleId="cdtBuildSystem" version="4.0.0">
-				<configuration artifactName="${ProjName}" buildProperties="" description="" id="0.1736445478" name="Build for CAN" parent="org.eclipse.cdt.build.core.prefbase.cfg">
+				<configuration buildProperties="" description="" id="0.1736445478" name="Build for CAN" parent="org.eclipse.cdt.build.core.prefbase.cfg">
 					<folderInfo id="0.1736445478." name="/" resourcePath="">
 						<toolChain id="org.eclipse.cdt.build.core.prefbase.toolchain.617501044" name="No ToolChain" resourceTypeBasedDiscovery="false" superClass="org.eclipse.cdt.build.core.prefbase.toolchain">
 							<targetPlatform id="org.eclipse.cdt.build.core.prefbase.toolchain.617501044.1951253675" name=""/>
@@ -35,7 +35,7 @@
 							</tool>
 							<tool id="org.eclipse.cdt.build.core.settings.holder.447094841" name="GNU C" superClass="org.eclipse.cdt.build.core.settings.holder">
 								<option id="org.eclipse.cdt.build.core.settings.holder.incpaths.830146064" name="Include Paths" superClass="org.eclipse.cdt.build.core.settings.holder.incpaths" valueType="includePath">
-									<listOptionValue builtIn="false" value="&quot;C:\Program Files (x86)\Atmel\AVR Tools\AVR Toolchain\avr\include&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;D:\ProgramFiles\AVR Tools\AVR Toolchain\avr\include&quot;"/>
 								</option>
 								<option id="org.eclipse.cdt.build.core.settings.holder.symbols.2050175655" name="Symbols" superClass="org.eclipse.cdt.build.core.settings.holder.symbols" valueType="definedSymbols">
 									<listOptionValue builtIn="false" value="__AVR_ATmega32__"/>
@@ -46,6 +46,9 @@
 							</tool>
 						</toolChain>
 					</folderInfo>
+					<sourceEntries>
+						<entry excluding="bootloader" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name=""/>
+					</sourceEntries>
 				</configuration>
 			</storageModule>
 			<storageModule moduleId="org.eclipse.cdt.core.externalSettings"/>
@@ -70,7 +73,7 @@
 					<folderInfo id="0.1736445478.1450655252." name="/" resourcePath="">
 						<toolChain id="org.eclipse.cdt.build.core.prefbase.toolchain.1260308114" name="No ToolChain" resourceTypeBasedDiscovery="false" superClass="org.eclipse.cdt.build.core.prefbase.toolchain">
 							<targetPlatform id="org.eclipse.cdt.build.core.prefbase.toolchain.1260308114.2057551009" name=""/>
-							<builder arguments="all APP=UART_APP" autoBuildTarget="all APP=UART_APP" buildPath="D:\PCB design\SW design\Serial_CAN\Target" command="make" enableAutoBuild="true" id="org.eclipse.cdt.build.core.settings.default.builder.54320840" incrementalBuildTarget="all APP=UART_APP" keepEnvironmentInBuildfile="false" managedBuildOn="false" name="Gnu Make Builder" parallelBuildOn="true" parallelizationNumber="optimal" superClass="org.eclipse.cdt.build.core.settings.default.builder">
+							<builder arguments="all APP=UART_APP" autoBuildTarget="all APP=UART_APP" buildPath="D:\PCB design\SW design\Serial_CAN\Target" command="make" enableAutoBuild="false" id="org.eclipse.cdt.build.core.settings.default.builder.54320840" incrementalBuildTarget="all APP=UART_APP" keepEnvironmentInBuildfile="false" managedBuildOn="false" name="Gnu Make Builder" parallelBuildOn="true" parallelizationNumber="optimal" superClass="org.eclipse.cdt.build.core.settings.default.builder">
 								<outputEntries>
 									<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="outputPath" name=""/>
 								</outputEntries>
@@ -84,7 +87,7 @@
 							</tool>
 							<tool id="org.eclipse.cdt.build.core.settings.holder.639026391" name="GNU C" superClass="org.eclipse.cdt.build.core.settings.holder">
 								<option id="org.eclipse.cdt.build.core.settings.holder.incpaths.1353300828" name="Include Paths" superClass="org.eclipse.cdt.build.core.settings.holder.incpaths" valueType="includePath">
-									<listOptionValue builtIn="false" value="&quot;C:\Program Files (x86)\Atmel\AVR Tools\AVR Toolchain\avr\include&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;D:\ProgramFiles\AVR Tools\AVR Toolchain\avr\include&quot;"/>
 								</option>
 								<option id="org.eclipse.cdt.build.core.settings.holder.symbols.1234954411" name="Symbols" superClass="org.eclipse.cdt.build.core.settings.holder.symbols" valueType="definedSymbols">
 									<listOptionValue builtIn="false" value="__AVR_ATmega32__"/>
@@ -95,6 +98,9 @@
 							</tool>
 						</toolChain>
 					</folderInfo>
+					<sourceEntries>
+						<entry excluding="bootloader" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name=""/>
+					</sourceEntries>
 				</configuration>
 			</storageModule>
 			<storageModule moduleId="org.eclipse.cdt.core.externalSettings"/>
@@ -132,5 +138,4 @@
 			<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId=""/>
 		</scannerConfigBuildInfo>
 	</storageModule>
-	<storageModule moduleId="org.eclipse.cdt.internal.ui.text.commentOwnerProjectMappings"/>
 </cproject>
