@@ -27,14 +27,14 @@ int main(void)
 		LED_INIT(RED);
 		LED_INIT(YELLOW);
 		LED_INIT(GREEN);
-	// initializze serial printer
+	// initialize serial printer
 		STKPRNT_init();
-	// init loop LED toggol
+	// init loop LED toggle
 		for (i=0;i<4;i++)
 		{
-			LED_TOGGOL(RED);
+			LED_TOGGLE(RED);
 			_delay_ms(50);
-			LED_TOGGOL(YELLOW);
+			LED_TOGGLE(YELLOW);
 		}
 	//
 		Timer1_init();

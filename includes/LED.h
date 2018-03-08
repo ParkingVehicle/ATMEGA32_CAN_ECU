@@ -20,5 +20,5 @@
 #define LED_ON(COLOR) (LED_PORT |= (1<<COLOR))
 #define LED_OFF(COLOR) (LED_PORT &= ~(1<<COLOR))
 #define LED_INIT(COLOR) (LED_DDR |= (1<<COLOR))
-#define LED_TOGGOL(COLOR) (LED_PORT ^= (1<<COLOR))
+#define LED_TOGGLE(COLOR) (LED_PORT ^= (1<<COLOR))
 
