@@ -3,15 +3,8 @@ import time
 import serial
 from threading import Thread
 
-# configure the serial connections (the parameters differs on the device you are connecting to)
-ser = serial.Serial(
-	port='COM7',
-	baudrate=19200,
-	parity = serial.PARITY_NONE,
-	stopbits=serial.STOPBITS_ONE,
-	bytesize=serial.EIGHTBITS
-)
-ser.isOpen()
+COM_PORT = 'COM7'
+
 def to_bytes(n, length, endianess='big'):
 	h = '%x' % n
 	s = ('0'*(len(h) % 2) + h).zfill(length*2).decode('hex')
@@ -94,11 +87,26 @@ def SerialWrite():
 				else:
 					ser.write(input)
 		#print("two printed")
-print('Enter your commands below.\r\nInsert "exit" to leave the application.')
+		
+try:
+	# configure the serial connections (the parameters differs on the device you are connecting to)
+	ser = serial.Serial(
+		port=COM_PORT,
+		baudrate=19200,
+		parity = serial.PARITY_NONE,
+		stopbits=serial.STOPBITS_ONE,
+		bytesize=serial.EIGHTBITS
+		)
+	ser.isOpen()
+	print('Enter your commands below.\r\nInsert "exit" to leave the application.')
 
-input=1
-t = Thread(target=SerialRead)
-t.start()
-t2 = Thread(target = SerialWrite)
-t2.start()
+	input=1
+	t = Thread(target=SerialRead)
+	t.start()
+	t2 = Thread(target = SerialWrite)
+	t2.start()
+except:
+	print("Couldn't open serial port "+COM_PORT+'\r\n'+"Please change COM_PORT Number in Serial.py\r\n")
+	print ("Exiting ..")
+
 

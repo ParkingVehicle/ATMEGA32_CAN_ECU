@@ -2,9 +2,8 @@
 //Microcontroller Abistraction layer
 //////////////////////////////////////
 #include <avr\io.h>
+#include "common.h"
 #include "UART_Drive.h"
-
-
 //////////// Global Functions /////////////////////
 
 void USART_Init( unsigned int baud )
@@ -21,7 +20,10 @@ UCSRC = (1<<URSEL)|(3<<UCSZ0)|(1<<USBS);
 }
 
 ////////////////////////////////////////////////////
-
+uint8 USART_CheckTransmitAvailable(void)
+{
+	return( UCSRA & (1<<UDRE));
+}
 void USART_Transmit( unsigned char data )
 {
 /* Wait for empty transmit buffer */

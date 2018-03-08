@@ -61,11 +61,13 @@ TARGET = UART-LED
 MCP2515_DIR = ../src/MCP2515
 SPI_DIR = ../src/SPI
 UART_DIR = ../src/UART
-
+STKPRNT = ../src/STKPRNT
+Timer1_DIR = ../src/Timer1
 
 # List C source files here. (C dependencies are automatically generated.)
 SRC = ../src/main.c
 SRC +=	../src/UART/UART_Drive.c
+SRC +=	$(STKPRNT)/STKPRNT.c
 SRC += $(MCP2515_DIR)/mcp2515.c
 SRC += $(MCP2515_DIR)/mcp2515_buffer.c
 SRC += $(MCP2515_DIR)/mcp2515_get_message.c
@@ -80,7 +82,8 @@ SRC += $(MCP2515_DIR)/mcp2515_regdump.c
 SRC += $(MCP2515_DIR)/mcp2515_set_mode.c
 SRC += $(MCP2515_DIR)/mcp2515_sleep.c
 SRC += $(SPI_DIR)/spi.c	
-
+SRC += $(Timer1_DIR)/Timer1.c
+	
 # List Assembler source files here.
 #     Make them always end in a capital .S.  Files ending in a lowercase .s
 #     will not be considered source files but generated files (assembler
@@ -112,7 +115,9 @@ EXTRAINCDIRS = \
 	../includes \
 	$(UART_DIR) \
 	$(MCP2515_DIR) \
-	$(SPI_DIR)
+	$(STKPRNT) \
+	$(SPI_DIR) \
+	$(Timer1_DIR)
 
 
 
@@ -126,7 +131,7 @@ CSTANDARD = -std=gnu99
 
 # Place -D or -U options here
 CDEFS = -DF_CPU=$(F_CPU)UL
-CDEFS += -D$(APP)
+#CDEFS += -D$(APP)
 
 
 # Place -I options here

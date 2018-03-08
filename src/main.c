@@ -1,20 +1,10 @@
-#include <avr/io.h>
-#include "UART_Drive.h"
 #include "LED.h"
 #include "common.h"
-#include <avr/pgmspace.h>
 #include "can.h"
-#include <avr/interrupt.h>
-#define STACKMAX 150
-void PrintStr(const char * sent);
-void PrintSerial(char *ch);
-static char SerialStack[STACKMAX];
-static char *StackPointerFront = SerialStack;
-static char *StackPointerRear = SerialStack;
-#define isStackFull(StkPtrF,StkPtrR)  ((StkPtrR > StkPtrF) ? ((StkPtrR-StkPtrF)==1) : ((StkPtrF-StkPtrR)==STACKMAX-10))
-#define isStackEmpty(StkPtrF,StkPtrR)  ((StkPtrR == StkPtrF) ? 1 : 0)
-#define incStackPtr(StkPtr)  ((StkPtr-SerialStack) < (STACKMAX) ? (StkPtr++) : (StkPtr=SerialStack))
-#define decStackPtr(StkPtrR)  ((StkPtrR-SerialStack) < (STACKMAX) ? (StkPtrR++) : (StkPtrR=SerialStack))
+#include "STKPRNT.h"
+#include <util/delay.h>
+#include "Timer1.h"
+
 const uint8_t can_filter[] PROGMEM =
 {
 	// Group 0
@@ -32,29 +22,33 @@ const uint8_t can_filter[] PROGMEM =
 };
 int main(void)
 {
-	DDRD = 0xFF;
-	DDRD &= ~(3 << PD3); // init SW3(PD3) and SW2(PD4)
-	PORTD = 0x00;
-
+	int i;
+	// init LEDS
+		LED_INIT(RED);
+		LED_INIT(YELLOW);
+		LED_INIT(GREEN);
+	// initializze serial printer
+		STKPRNT_init();
+	// init loop LED toggol
+		for (i=0;i<4;i++)
+		{
+			LED_TOGGOL(RED);
+			_delay_ms(50);
+			LED_TOGGOL(YELLOW);
+		}
 	//
-	 TCNT1 = 63974;   // for 1 sec at 16 MHz
+		Timer1_init();
 
-		TCCR1A = 0x00;
-		TCCR1B = (1<<CS10) | (1<<CS12);;  // Timer mode with 1024 prescler
-		TIMSK = (1 << TOIE1) ;   // Enable timer1 overflow interrupt(TOIE1)
-		sei();        // Enable global interrupts by setting global interrupt enable bit in SREG
-
-#if defined(CAN_APP) //defined by make
 	// Initialize MCP2515
-		USART_Init(103);
+
 	if(can_init(BITRATE_125_KBPS))
 	{
-		PrintSerial("Module initialized !! \r\n");
-		PrintSerial("Starting Can Filter\r\n");
-		PrintSerial("Can Filter initialized\r\n");
+		STKPRNT_PrintSerial("Module initialized !! \r\n");
+		STKPRNT_PrintSerial("Starting Can Filter\r\n");
+		STKPRNT_PrintSerial("Can Filter initialized\r\n");
 	}else{
-		PrintSerial("Module is not connected !! \r\n");
-		PrintSerial("Aborting application ........\r\n");
+		STKPRNT_PrintSerial("Module is not connected !! \r\n");
+		STKPRNT_PrintSerial("Aborting application ........\r\n");
 	}
 	// Load filters and masks
 	can_static_filter(can_filter);
@@ -74,6 +68,7 @@ int main(void)
 
 	// Send the message
 	can_send_message(&msg);
+	STKPRNT_PrintSerial("Message Sent ... \r\n");
 	while (1)
 	{
 		// Check if a new messag was received
@@ -84,6 +79,7 @@ int main(void)
 			// Try to read the message
 			if (can_get_message(&msg))
 			{
+				STKPRNT_PrintSerial("Message Received ... \r\n");
 				// If we received a message resend it with a different id
 				msg.id += 10;
 
@@ -92,61 +88,6 @@ int main(void)
 			}
 		}
 	}
-#elif defined(UART_APP)
-	///////////// Local Declaration //////////////
-	uint8 receivedByte;
-
-	//////////// init seq ////////////
-
-	USART_Init(25);
-	LED_init;
-	//////////  app seq /////////////
-	while(1)
-	{
-		receivedByte = USART_Receive();
-		switch(receivedByte)
-		{
-			case 0x61:
-				LED_ON;
-				break;
-			case 'b':
-				LED_OFF;
-				break;
-
-			default:
-			//	USART_Transmit(receivedByte);
-				PrintStr("Anas\r\n");
-				LED_ON;
-		}
-	}
-#endif
-//while(1);
 	return 0;
 }
-void PrintStr(const char * sent)
-{
-	// USART_Transmit(*(sent+2))
-	while(*(sent) != 0)
-	{
-		USART_Transmit(*sent++);
-	}
 
-}
-ISR (TIMER1_OVF_vect)    // Timer1 ISR
-{
-	//PORTD ^= (1 << 5);
-	TCNT1 = 65000;   // for 1 sec at 16 MHz
-	if(!isStackEmpty(StackPointerFront,StackPointerRear)) //stack is not empty
-	{
-		USART_Transmit(*StackPointerRear);
-		incStackPtr(StackPointerRear);
-	}
-}
-void PrintSerial(char *ch)
-{
-	while(!isStackFull(StackPointerFront,StackPointerRear)&&(*ch != 0))
-	{
-		*(StackPointerFront)=*(ch++);
-		incStackPtr(StackPointerFront);
-	}
-}
