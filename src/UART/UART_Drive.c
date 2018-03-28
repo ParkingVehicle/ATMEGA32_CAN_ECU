@@ -40,3 +40,21 @@ while ( !(UCSRA & (1<<RXC)) );
 return UDR;
 
 }
+void HexToAscii(uint32_t num,char * ascii)
+{
+	uint8 tmp[7];
+	uint8 i;
+	tmp[0] = (num%16);
+	tmp[1] = ((num>>4)%16);
+	tmp[2] = ((num>>8)%16);
+	tmp[3] = ((num>>12)%16);
+	tmp[4] = ((num>>16)%16);
+	tmp[5] = ((num>>20)%16);
+	for (i=0;i<6;i++)
+	{
+		if(tmp[i] < 10)
+			ascii[i]=tmp[i]+48;
+		else
+			ascii[i]=tmp[i]+55;
+	}
+}

@@ -6,6 +6,10 @@
 #define GREEN PD7
 #define LED_PORT PORTD
 
+#define N_YELLOW PD3
+#define N_BLUE PD4
+
+
 
 //////////////////////////
 /*
@@ -21,4 +25,3 @@
 #define LED_OFF(COLOR) (LED_PORT &= ~(1<<COLOR))
 #define LED_INIT(COLOR) (LED_DDR |= (1<<COLOR))
 #define LED_TOGGLE(COLOR) (LED_PORT ^= (1<<COLOR))
-
