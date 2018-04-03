@@ -1,11 +1,9 @@
-update=10/31/2017 9:45:40 PM
+update=4/2/2018 8:04:23 PM
 version=1
 last_client=kicad
 [cvpcb]
 version=1
 NetIExt=net
-[general]
-version=1
 [eeschema]
 version=1
 LibDir=../Canboard_lib
@@ -61,3 +59,5 @@ SolderMaskMinWidth=0
 DrawSegmentWidth=0.2
 BoardOutlineThickness=0.15
 ModuleOutlineThickness=0.15
+[general]
+version=1

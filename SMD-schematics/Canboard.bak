@@ -93,8 +93,8 @@ $EndComp
 $Sheet
 S 7750 1150 1700 1400
 U 59EBF443
-F0 "Atmega32A" 60
-F1 "Atmega32A.sch" 60
+F0 "Atmega32m1" 60
+F1 "Atmega32m1.sch" 60
 F2 "AT-MOSI" I R 9450 2100 60 
 F3 "AT-MISO" I R 9450 2200 60 
 F4 "AT-SCK" I R 9450 2350 60 
@@ -135,7 +135,7 @@ U 1 1 59EFD7D8
 P 7150 3550
 F 0 "J4" H 7200 3750 50  0000 C CNN
 F 1 "Conn_Debug" H 7200 3350 50  0000 C CNN
-F 2 "Pin_Headers:Pin_Header_Straight_2x03_Pitch2.54mm_SMD" H 7150 3550 50  0001 C CNN
+F 2 "Pin_Headers:Pin_Header_Straight_2x03_Pitch2.54mm" H 7150 3550 50  0001 C CNN
 F 3 "" H 7150 3550 50  0001 C CNN
 	1    7150 3550
 	1    0    0    -1  
@@ -168,7 +168,7 @@ U 1 1 59EFE9EC
 P 6100 3450
 F 0 "JP1" H 6100 3530 50  0000 C CNN
 F 1 "Jumper_NO_Small" H 6110 3390 50  0000 C CNN
-F 2 "Pin_Headers:Pin_Header_Straight_1x02_Pitch2.54mm_SMD_Pin1Left" H 6100 3450 50  0001 C CNN
+F 2 "Pin_Headers:Pin_Header_Straight_1x02_Pitch2.54mm" H 6100 3450 50  0001 C CNN
 F 3 "" H 6100 3450 50  0001 C CNN
 	1    6100 3450
 	0    1    1    0   
@@ -212,7 +212,7 @@ U 1 1 59F00AB2
 P 7750 3450
 F 0 "JP2" H 7750 3530 50  0000 C CNN
 F 1 "Jumper_NO_Small" H 7760 3390 50  0000 C CNN
-F 2 "Pin_Headers:Pin_Header_Straight_1x02_Pitch2.54mm_SMD_Pin1Left" H 7750 3450 50  0001 C CNN
+F 2 "Pin_Headers:Pin_Header_Straight_1x02_Pitch2.54mm" H 7750 3450 50  0001 C CNN
 F 3 "" H 7750 3450 50  0001 C CNN
 	1    7750 3450
 	1    0    0    -1  
@@ -292,7 +292,7 @@ U 1 1 59F05114
 P 10250 1200
 F 0 "R1" V 10330 1200 50  0000 C CNN
 F 1 "100k" V 10250 1200 50  0000 C CNN
-F 2 "Resistors_SMD:R_0805_HandSoldering" V 10180 1200 50  0001 C CNN
+F 2 "Resistors_SMD:R_1206_HandSoldering" V 10180 1200 50  0001 C CNN
 F 3 "" H 10250 1200 50  0001 C CNN
 	1    10250 1200
 	1    0    0    -1  
@@ -303,7 +303,7 @@ U 1 1 59F05259
 P 10250 1650
 F 0 "R2" V 10330 1650 50  0000 C CNN
 F 1 "1k" V 10250 1650 50  0000 C CNN
-F 2 "Resistors_SMD:R_0805_HandSoldering" V 10180 1650 50  0001 C CNN
+F 2 "Resistors_SMD:R_1206_HandSoldering" V 10180 1650 50  0001 C CNN
 F 3 "" H 10250 1650 50  0001 C CNN
 	1    10250 1650
 	1    0    0    -1  
@@ -351,7 +351,7 @@ U 1 1 5A24AB51
 P 7650 5150
 F 0 "JP3" H 7650 5230 50  0000 C CNN
 F 1 "Jumper_NO_Small" H 7660 5090 50  0000 C CNN
-F 2 "Pin_Headers:Pin_Header_Straight_1x02_Pitch2.54mm_SMD_Pin1Left" H 7650 5150 50  0001 C CNN
+F 2 "Pin_Headers:Pin_Header_Straight_1x02_Pitch2.54mm" H 7650 5150 50  0001 C CNN
 F 3 "" H 7650 5150 50  0001 C CNN
 	1    7650 5150
 	1    0    0    -1  
