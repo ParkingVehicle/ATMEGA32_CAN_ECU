@@ -31,6 +31,10 @@ LIBS:opto
 LIBS:atmel
 LIBS:contrib
 LIBS:valves
+LIBS:mcp2021
+LIBS:diod
+LIBS:diode
+LIBS:Diode1
 LIBS:Canboard-cache
 EELAYER 25 0
 EELAYER END
@@ -68,7 +72,7 @@ F 3 "" H 10350 4350 50  0001 C CNN
 	1    10350 4150
 	1    0    0    -1  
 $EndComp
-Text HLabel 9250 1850 0    60   Input ~ 0
+Text HLabel 9550 2650 0    60   Input ~ 0
 ~AT-RST
 $Comp
 L GND #PWR017
@@ -369,7 +373,7 @@ F 3 "" H 6150 7600 50  0001 C CNN
 $EndComp
 Text Label 9800 4150 2    60   ~ 0
 AT-RESET
-Text Label 10100 1750 2    60   ~ 0
+Text Label 10400 2550 2    60   ~ 0
 AT-RESET
 Text Label 10400 1250 0    60   ~ 0
 AT-RX/SCK_A
@@ -532,11 +536,11 @@ Wire Wire Line
 Wire Wire Line
 	5750 7600 5800 7600
 Wire Wire Line
-	9250 1850 10400 1850
+	9550 2650 10700 2650
 Wire Wire Line
 	3550 4100 3450 4100
 Wire Wire Line
-	10100 1750 10650 1750
+	10400 2550 10950 2550
 Wire Wire Line
 	3750 1500 3450 1500
 Wire Wire Line
@@ -579,13 +583,13 @@ Text Label 1300 4950 2    60   ~ 0
 AT-PB1
 Text Label 1300 5250 2    60   ~ 0
 AT-PB7
-Text Label 1300 5750 2    60   ~ 0
+Text Label 1150 5950 2    60   ~ 0
 AT-PB4
 Text Label 1300 5050 2    60   ~ 0
 PB2/INT1
 Text Label 5500 1200 2    60   ~ 0
 AT-PB5
-Text Label 1300 5650 2    60   ~ 0
+Text Label 1150 5850 2    60   ~ 0
 AT-PB3
 Wire Wire Line
 	1300 4950 1600 4950
@@ -617,45 +621,30 @@ Wire Wire Line
 	2400 5250 2100 5250
 Wire Wire Line
 	2400 5350 2100 5350
-Text HLabel 2400 5650 2    60   Input ~ 0
+Text HLabel 2250 5850 2    60   Input ~ 0
 AT-MISO
-$Comp
-L Conn_02x06_Odd_Even J11
-U 1 1 5AC16837
-P 1800 5850
-F 0 "J11" H 1850 6150 50  0000 C CNN
-F 1 "Conn_02x06_Odd_Even" H 1850 5450 50  0000 C CNN
-F 2 "Pin_Headers:Pin_Header_Straight_2x06_Pitch2.54mm" H 1800 5850 50  0001 C CNN
-F 3 "" H 1800 5850 50  0001 C CNN
-	1    1800 5850
-	1    0    0    -1  
-$EndComp
-Text Label 2400 5950 0    60   ~ 0
+Text Label 2250 6150 0    60   ~ 0
 AT-ADC4
-Text Label 2400 6050 0    60   ~ 0
+Text Label 1150 6050 2    60   ~ 0
 AT-ADC5
-Text Label 2400 6150 0    60   ~ 0
+Text Label 1150 6150 2    60   ~ 0
 AT-PD7
-Text Label 2400 5750 0    60   ~ 0
+Text Label 2250 5950 0    60   ~ 0
 AT-TX/MOSI
-Text Label 2400 5850 0    60   ~ 0
+Text Label 2250 6050 0    60   ~ 0
 AT-RX/SCK_A
 Wire Wire Line
-	2100 6050 2400 6050
+	1450 6050 1150 6050
 Wire Wire Line
-	2400 5950 2100 5950
+	2250 6150 1950 6150
 Wire Wire Line
-	2400 6150 2100 6150
+	1150 6150 1450 6150
 Wire Wire Line
-	2400 5750 2100 5750
+	2250 5950 1950 5950
 Wire Wire Line
-	2400 5850 2100 5850
+	2250 6050 1950 6050
 Wire Wire Line
-	2400 5650 2100 5650
-NoConn ~ 1600 5850
-NoConn ~ 1600 5950
-NoConn ~ 1600 6050
-NoConn ~ 1600 6150
+	2250 5850 1950 5850
 $Comp
 L Conn_02x06_Odd_Even J7
 U 1 1 5AC18863
@@ -713,45 +702,6 @@ Wire Wire Line
 	2300 7050 2000 7050
 Wire Wire Line
 	2300 7150 2000 7150
-Text HLabel 4400 5900 2    60   Input ~ 0
-AT-MISO
-$Comp
-L Conn_02x06_Odd_Even J12
-U 1 1 5AC188F3
-P 3800 6100
-F 0 "J12" H 3850 6400 50  0000 C CNN
-F 1 "Conn_02x06_Odd_Even" H 3850 5700 50  0000 C CNN
-F 2 "Pin_Headers:Pin_Header_Straight_2x06_Pitch2.54mm" H 3800 6100 50  0001 C CNN
-F 3 "" H 3800 6100 50  0001 C CNN
-	1    3800 6100
-	1    0    0    -1  
-$EndComp
-Text Label 4400 6200 0    60   ~ 0
-AT-ADC4
-Text Label 4400 6300 0    60   ~ 0
-AT-ADC5
-Text Label 4400 6400 0    60   ~ 0
-AT-PD7
-Text Label 4400 6000 0    60   ~ 0
-AT-TX/MOSI
-Text Label 4400 6100 0    60   ~ 0
-AT-RX/SCK_A
-Wire Wire Line
-	4100 6300 4400 6300
-Wire Wire Line
-	4400 6200 4100 6200
-Wire Wire Line
-	4400 6400 4100 6400
-Wire Wire Line
-	4400 6000 4100 6000
-Wire Wire Line
-	4400 6100 4100 6100
-Wire Wire Line
-	4400 5900 4100 5900
-NoConn ~ 3600 6100
-NoConn ~ 3600 6200
-NoConn ~ 3600 6300
-NoConn ~ 3600 6400
 Text HLabel 5350 7600 0    60   Input ~ 0
 ~AT-RST
 $Comp
@@ -786,23 +736,23 @@ Text Label 10350 5150 1    60   ~ 0
 XTAL1
 Text Label 10800 5150 1    60   ~ 0
 XTAL2
-Text Label 9600 1850 2    60   ~ 0
+Text Label 9900 2650 2    60   ~ 0
 SPI-DW
 $Comp
 L Jumper_NO_Small JP5
 U 1 1 5AC326E0
-P 10650 1850
-F 0 "JP5" H 10650 1930 50  0000 C CNN
-F 1 "Jumper_NO_Small" H 10660 1790 50  0000 C CNN
-F 2 "Pin_Headers:Pin_Header_Straight_1x02_Pitch2.54mm" H 10650 1850 50  0001 C CNN
-F 3 "" H 10650 1850 50  0001 C CNN
-	1    10650 1850
+P 10950 2650
+F 0 "JP5" H 10950 2730 50  0000 C CNN
+F 1 "Jumper_NO_Small" H 10960 2590 50  0000 C CNN
+F 2 "Pin_Headers:Pin_Header_Straight_1x02_Pitch2.54mm" H 10950 2650 50  0001 C CNN
+F 3 "" H 10950 2650 50  0001 C CNN
+	1    10950 2650
 	0    1    1    0   
 $EndComp
 Wire Wire Line
-	10400 1850 10400 1950
+	10700 2650 10700 2750
 Wire Wire Line
-	10400 1950 10650 1950
+	10700 2750 10950 2750
 $Comp
 L Conn_02x03_Odd_Even J10
 U 1 1 5AD2B36D
@@ -867,15 +817,73 @@ AT-PD1
 Wire Wire Line
 	4650 4850 4650 4900
 Wire Wire Line
-	1300 5650 1600 5650
+	1150 5850 1450 5850
 Wire Wire Line
-	1600 5750 1300 5750
-Text Label 3450 6000 2    60   ~ 0
+	1450 5950 1150 5950
+$Comp
+L Conn_02x04_Counter_Clockwise J?
+U 1 1 5AD50829
+P 1650 5950
+F 0 "J?" H 1700 6150 50  0000 C CNN
+F 1 "Conn_02x04_Counter_Clockwise" H 1700 5650 50  0000 C CNN
+F 2 "" H 1650 5950 50  0001 C CNN
+F 3 "" H 1650 5950 50  0001 C CNN
+	1    1650 5950
+	1    0    0    -1  
+$EndComp
+Text Label 3450 6200 2    60   ~ 0
 AT-PB4
-Text Label 3450 5900 2    60   ~ 0
+Text Label 3450 6100 2    60   ~ 0
 AT-PB3
+Text HLabel 4550 6100 2    60   Input ~ 0
+AT-MISO
+Text Label 4550 6400 0    60   ~ 0
+AT-ADC4
+Text Label 3450 6300 2    60   ~ 0
+AT-ADC5
+Text Label 3450 6400 2    60   ~ 0
+AT-PD7
+Text Label 4550 6200 0    60   ~ 0
+AT-TX/MOSI
+Text Label 4550 6300 0    60   ~ 0
+AT-RX/SCK_A
 Wire Wire Line
-	3450 5900 3600 5900
+	3750 6300 3450 6300
 Wire Wire Line
-	3600 6000 3450 6000
+	4550 6400 4250 6400
+Wire Wire Line
+	3450 6400 3750 6400
+Wire Wire Line
+	4550 6200 4250 6200
+Wire Wire Line
+	4550 6300 4250 6300
+Wire Wire Line
+	4550 6100 4250 6100
+Wire Wire Line
+	3450 6100 3750 6100
+Wire Wire Line
+	3750 6200 3450 6200
+$Comp
+L Conn_02x04_Counter_Clockwise J?
+U 1 1 5AD50A52
+P 3950 6200
+F 0 "J?" H 4000 6400 50  0000 C CNN
+F 1 "Conn_02x04_Counter_Clockwise" H 4000 5900 50  0000 C CNN
+F 2 "" H 3950 6200 50  0001 C CNN
+F 3 "" H 3950 6200 50  0001 C CNN
+	1    3950 6200
+	1    0    0    -1  
+$EndComp
+Text Label 10400 1750 0    60   ~ 0
+AT-TX/MOSI
+Text Label 10400 1900 0    60   ~ 0
+AT-RX/SCK_A
+Text HLabel 9750 1750 0    60   Input ~ 0
+TXLIN
+Text HLabel 9750 1900 0    60   Input ~ 0
+RXLIN
+Wire Wire Line
+	10400 1900 9750 1900
+Wire Wire Line
+	9750 1750 10400 1750
 $EndSCHEMATC
