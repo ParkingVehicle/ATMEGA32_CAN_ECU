@@ -820,17 +820,6 @@ Wire Wire Line
 	1150 5850 1450 5850
 Wire Wire Line
 	1450 5950 1150 5950
-$Comp
-L Conn_02x04_Counter_Clockwise J?
-U 1 1 5AD50829
-P 1650 5950
-F 0 "J?" H 1700 6150 50  0000 C CNN
-F 1 "Conn_02x04_Counter_Clockwise" H 1700 5650 50  0000 C CNN
-F 2 "" H 1650 5950 50  0001 C CNN
-F 3 "" H 1650 5950 50  0001 C CNN
-	1    1650 5950
-	1    0    0    -1  
-$EndComp
 Text Label 3450 6200 2    60   ~ 0
 AT-PB4
 Text Label 3450 6100 2    60   ~ 0
@@ -863,17 +852,6 @@ Wire Wire Line
 	3450 6100 3750 6100
 Wire Wire Line
 	3750 6200 3450 6200
-$Comp
-L Conn_02x04_Counter_Clockwise J?
-U 1 1 5AD50A52
-P 3950 6200
-F 0 "J?" H 4000 6400 50  0000 C CNN
-F 1 "Conn_02x04_Counter_Clockwise" H 4000 5900 50  0000 C CNN
-F 2 "" H 3950 6200 50  0001 C CNN
-F 3 "" H 3950 6200 50  0001 C CNN
-	1    3950 6200
-	1    0    0    -1  
-$EndComp
 Text Label 10400 1750 0    60   ~ 0
 AT-TX/MOSI
 Text Label 10400 1900 0    60   ~ 0
@@ -886,4 +864,26 @@ Wire Wire Line
 	10400 1900 9750 1900
 Wire Wire Line
 	9750 1750 10400 1750
+$Comp
+L Conn_02x04_Odd_Even J9
+U 1 1 5AD56421
+P 3950 6200
+F 0 "J9" H 4000 6400 50  0000 C CNN
+F 1 "Conn_02x04_Odd_Even" H 4000 5900 50  0000 C CNN
+F 2 "Pin_Headers:Pin_Header_Angled_2x04_Pitch2.54mm" H 3950 6200 50  0001 C CNN
+F 3 "" H 3950 6200 50  0001 C CNN
+	1    3950 6200
+	1    0    0    -1  
+$EndComp
+$Comp
+L Conn_02x04_Odd_Even J6
+U 1 1 5AD564FE
+P 1650 5950
+F 0 "J6" H 1700 6150 50  0000 C CNN
+F 1 "Conn_02x04_Odd_Even" H 1700 5650 50  0000 C CNN
+F 2 "Pin_Headers:Pin_Header_Angled_2x04_Pitch2.54mm" H 1650 5950 50  0001 C CNN
+F 3 "" H 1650 5950 50  0001 C CNN
+	1    1650 5950
+	1    0    0    -1  
+$EndComp
 $EndSCHEMATC
